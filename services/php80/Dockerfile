@@ -23,9 +23,10 @@ RUN apk --no-cache add tzdata \
     && echo "$TZ" > /etc/timezone
 
 
-# Fix: https://github.com/docker-library/php/issues/240
-RUN apk add gnu-libiconv=1.15-r3 libstdc++ --no-cache --repository http://${CONTAINER_PACKAGE_URL}/alpine/edge/community/ --allow-untrusted
-ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+# Fix: https://github.com/docker-library/php/issues/240 gnu-libiconv-1.17-r2.apk  
+#RUN apk add gnu-libiconv=1.15-r3 libstdc++ --no-cache --repository http://${CONTAINER_PACKAGE_URL}/alpine/edge/community/ --allow-untrusted
+#RUN apk add gnu-libiconv=1.17-r2 libstdc++ --no-cache --repository http://${CONTAINER_PACKAGE_URL}/alpine/edge/community/x86_64/ --allow-untrusted
+#ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
 
 
 # Install composer and change it's cache home
